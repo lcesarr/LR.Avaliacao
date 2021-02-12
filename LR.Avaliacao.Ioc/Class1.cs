@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LR.Avaliacao.Ioc
+﻿namespace LR.Avaliacao.Ioc
 {
     public class Class1
     {

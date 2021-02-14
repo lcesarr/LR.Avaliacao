@@ -20,7 +20,7 @@ namespace LR.Avaliacao.Util.Validacoes
 
         public static bool ValidarIdadeMinima(DateTime aniversario, int idadeMinima)
         {
-            return (new DateTime(DateTime.Now.Subtract(aniversario).Ticks).Year - 1) > idadeMinima;
+            return (new DateTime(DateTime.Now.Subtract(aniversario).Ticks).Year - 1) >= idadeMinima;
         }
     }
 }

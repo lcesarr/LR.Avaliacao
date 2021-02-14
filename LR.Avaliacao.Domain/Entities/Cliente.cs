@@ -31,6 +31,11 @@ namespace LR.Avaliacao.Domain.Entities
             ValidarIdade();
         }
 
+        public void AlterarId(Guid id)
+        {
+            Id = id;
+        }
+
         private void ValidarIdade()
         {
             AddNotifications(new Contract()
@@ -43,7 +48,9 @@ namespace LR.Avaliacao.Domain.Entities
             AddNotifications(new Contract()
                 .Requires()
                 .IsNotNullOrWhiteSpace(Nome, nameof(Nome), "Nome não pode ser nulo ou branco")
-                .HasMaxLen(Nome, 100, nameof(Nome), "Nome deve conter 100 caracteres"));
+                .HasMaxLen(Nome, 100, nameof(Nome), "Nome deve conter 100 caracteres")
+                .Matchs(Nome, @"^[aA-zZ]+((\s[aA-zZ]+)+)?$", nameof(Nome), "Nome inválido")
+                .IsTrue(Nome.Contains(" "), nameof(Nome), "Nome inválido"));
         }
 
         public string Nome { get; set; }

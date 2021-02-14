@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.extensibility.core" Version="2.4.1" />
@@ -17,11 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="RepositoriesMock\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LR.Avaliacao.Api\LR.Avaliacao.Api.csproj" />
+    <ProjectReference Include="..\LR.Avaliacao.Application\LR.Avaliacao.Application.csproj" />
     <ProjectReference Include="..\LR.Avaliacao.Domain\LR.Avaliacao.Domain.csproj" />
   </ItemGroup>
 

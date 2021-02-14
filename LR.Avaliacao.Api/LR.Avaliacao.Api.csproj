@@ -4,5 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LR.Avaliacao.Application\LR.Avaliacao.Application.csproj" />
+  </ItemGroup>
+
 
 </Project>

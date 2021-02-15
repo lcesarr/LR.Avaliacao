@@ -33,7 +33,7 @@ namespace LR.Avaliacao.Infrastructure.Repositories
             using (IDbConnection conn = base.Conexao().Value)
                 return await conn.QueryAsync<ClienteData>(queryObterPor, new
                 {
-                    nome = new DbString { IsAnsi = true, Length = 100, Value = nome },
+                    nome = new DbString { IsAnsi = true, Length = 100, Value = string.IsNullOrWhiteSpace(nome) ? null : $"%{nome}%" },
                     cpf = new DbString { IsAnsi = true, Length = 11, Value = cpf },
                     dataAniversarioInicio,
                     dataAniversarioFim

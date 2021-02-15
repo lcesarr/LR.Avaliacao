@@ -12,6 +12,10 @@ namespace LR.Avaliacao.Infrastructure.DommelDapperMap.Registrar
             FluentMapper.Initialize(config =>
             {
                 config.AddMap(new ClienteDommelDapperMap());
+                config.AddMap(new OperadorDommelDapperMap());
+                config.AddMap(new UsuarioDommelDapperMap());
+                config.AddMap(new MarcaDommelDapperMap());
+                config.AddMap(new ModeloDommelDapperMap());
 
                 config.ForDommel();
             });

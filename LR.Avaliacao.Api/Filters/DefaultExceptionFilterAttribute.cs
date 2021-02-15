@@ -50,7 +50,7 @@ namespace LR.Avaliacao.Api.Filters
                     sb.Append($"'{item.Key}': '{item.Value}' - ");
             }
             sb.Append($"'Resultado': '{context.Exception.Message}'");
-            return sb;
+            return await Task.FromResult(sb);
         }
     }
 }

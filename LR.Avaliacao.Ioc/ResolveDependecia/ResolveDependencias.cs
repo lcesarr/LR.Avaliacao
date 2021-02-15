@@ -16,6 +16,18 @@ namespace LR.Avaliacao.Ioc.ResolveDependecia
             services.AddScoped<IClienteApplication, ClienteApplication>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
 
+            services.AddScoped<IOperadorApplication, OperadorApplication>();
+            services.AddScoped<IOperadorRepository, OperadorRepository>();
+
+            services.AddScoped<IUsuarioApplication, UsuarioApplication>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
+            services.AddScoped<IMarcaApplication, MarcaApplication>();
+            services.AddScoped<IMarcaRepository, MarcaRepository>();
+
+            services.AddScoped<IModeloApplication, ModeloApplication>();
+            services.AddScoped<IModeloRepository, ModeloRepository>();
+
             RegistrarMapTabelas.Register();
 
             services.AddTransient(scope =>

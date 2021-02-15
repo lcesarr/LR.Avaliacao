@@ -90,7 +90,7 @@ namespace LR.Avaliacao.Tests.Controllers
                 Nome = nome,
                 Cpf = cpf,
                 Aniversario = !string.IsNullOrWhiteSpace(dataAniversario) ? DateTime.Parse(dataAniversario) : DateTime.MinValue
-            }); ;
+            });
             Assert.IsType<OkObjectResult>(result);
         }
 
@@ -106,7 +106,7 @@ namespace LR.Avaliacao.Tests.Controllers
                 Nome = nome,
                 Cpf = cpf,
                 Aniversario = !string.IsNullOrWhiteSpace(dataAniversario) ? DateTime.Parse(dataAniversario) : DateTime.MinValue
-            }); ;
+            });
             Assert.IsType<BadRequestObjectResult>(result);
         }
 

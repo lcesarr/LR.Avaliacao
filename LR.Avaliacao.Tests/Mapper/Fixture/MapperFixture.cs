@@ -12,6 +12,10 @@ namespace LR.Avaliacao.Tests.Mapper.Fixture
             var config = new MapperConfiguration(opts =>
             {
                 opts.AddProfile(new ClienteMapper());
+                opts.AddProfile(new OperadorMapper());
+                opts.AddProfile(new UsuarioMapper());
+                opts.AddProfile(new MarcaMapper());
+                opts.AddProfile(new ModeloMapper());
             });
 
             Mapper = config.CreateMapper();

@@ -4,4 +4,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LR.Avaliacao.Application\LR.Avaliacao.Application.csproj" />
+    <ProjectReference Include="..\LR.Avaliacao.Domain\LR.Avaliacao.Domain.csproj" />
+    <ProjectReference Include="..\LR.Avaliacao.Infrastructure\LR.Avaliacao.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

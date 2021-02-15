@@ -1,7 +1,9 @@
-﻿namespace LR.Avaliacao.Application.Models.Cliente
+﻿using System;
+
+namespace LR.Avaliacao.Application.Models.Cliente
 {
     public class ClienteRetornoModel : ClienteModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LR.Avaliacao.Application.Models.Cliente;
 using LR.Avaliacao.Domain.Entities;
+using LR.Avaliacao.Domain.EntitiesData;
 
 namespace LR.Avaliacao.Application.Mapping
 {
@@ -8,21 +9,18 @@ namespace LR.Avaliacao.Application.Mapping
     {
         public ClienteMapper()
         {
-            CreateMap<ClienteModel, Cliente>();
-            //CreateMap<Cliente, CaracteristicaDbModel>();
-            //CreateMap<CaracteristicaDbModel, CaracteristicaModel>();
-            CreateMap<Cliente, ClienteModel>();
+            CreateMap<ClienteModel, Cliente>()
+                .ForMember(dest => dest.Cpf, m => m.Ignore())
+                .ConstructUsing(src =>
+                    new Cliente(src.Nome, new Domain.ValueObjects.Cpf(src.Cpf), src.Aniversario));
 
-            //CreateMap<InserirCaracteristicaModel, Caracteristica>()
-            //    .ForMember(caracteristica => caracteristica.Descricao, m => m.Ignore())
-            //    .ConstructUsing(inserirCaracteristicaModel =>
-            //        new Caracteristica(inserirCaracteristicaModel.Descricao));
+            CreateMap<Cliente, ClienteModel>()
+                .ForMember(dest => dest.Cpf, m => m.MapFrom(src => src.Cpf.Valor));
 
-            //CreateMap<AtivarInativarCaracteristicaModel, Caracteristica>()
-            //    .ForMember(caracteristica => caracteristica.Id, m => m.Ignore())
-            //    .ForMember(caracteristica => caracteristica.UsuarioAlteracao, m => m.Ignore())
-            //    .ConstructUsing(inserirCaracteristicaModel =>
-            //        new Caracteristica(inserirCaracteristicaModel.Id, inserirCaracteristicaModel.UsuarioAlteracao));
+            CreateMap<Cliente, ClienteData>()
+                .ForMember(dest => dest.Cpf, m => m.MapFrom(src => src.Cpf.Valor));
+
+            CreateMap<ClienteData, ClienteRetornoModel>();
         }
     }
 }

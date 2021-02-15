@@ -18,9 +18,17 @@ namespace LR.Avaliacao.Util.Validacoes
             return true;
         }
 
+        public static bool ValidarData(DateTime? @dateTime)
+        {
+            if (@dateTime.HasValue && @dateTime.Value.Equals(DateTime.MinValue)) return false;
+            if (!@dateTime.HasValue) return false;
+            return true;
+        }
+
         public static bool ValidarIdadeMinima(DateTime aniversario, int idadeMinima)
         {
-            return (new DateTime(DateTime.Now.Subtract(aniversario).Ticks).Year - 1) >= idadeMinima;
+            if (DateTime.Now.Date.Subtract(aniversario.Date).Ticks <= 0) return false;
+            return (new DateTime(DateTime.Now.Date.Subtract(aniversario.Date).Ticks).Year - 1) >= idadeMinima;
         }
     }
 }

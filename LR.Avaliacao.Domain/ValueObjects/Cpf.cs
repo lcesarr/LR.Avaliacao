@@ -1,6 +1,5 @@
 ﻿using Flunt.Notifications;
 using Flunt.Validations;
-using System;
 
 namespace LR.Avaliacao.Domain.ValueObjects
 {

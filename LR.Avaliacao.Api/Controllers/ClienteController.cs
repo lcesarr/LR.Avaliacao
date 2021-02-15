@@ -1,4 +1,5 @@
-﻿using LR.Avaliacao.Application.Interfaces;
+﻿using LR.Avaliacao.Api.Controllers.Base;
+using LR.Avaliacao.Application.Interfaces;
 using LR.Avaliacao.Application.Models.Cliente;
 using LR.Avaliacao.Application.Resultado;
 using Microsoft.AspNetCore.Http;
@@ -9,11 +10,18 @@ using System.Threading.Tasks;
 
 namespace LR.Avaliacao.Api.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [ApiController]
-    [Route("[cliente]")]
-    public class ClienteController : Controller
+    [Route("[controller]")]
+    public class ClienteController : ApiBaseController
     {
         private readonly IClienteApplication _clienteApplication;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="clienteApplication"></param>
         public ClienteController(IClienteApplication clienteApplication)
         {
             _clienteApplication = clienteApplication;
@@ -35,9 +43,7 @@ namespace LR.Avaliacao.Api.Controllers
         public async Task<IActionResult> Listar(string nome, string cpf, DateTime? dataAniversarioInicio, DateTime? dataAniversarioFim)
         {
             var retorno = await _clienteApplication.Listar(nome, cpf, dataAniversarioInicio, dataAniversarioFim);
-            if (retorno.Valid)
-                return Ok(retorno.Object);
-            return BadRequest(retorno.Notifications);
+            return Ok(retorno.Object);
         }
 
         /// <summary>
@@ -61,6 +67,7 @@ namespace LR.Avaliacao.Api.Controllers
         /// Altera dados de clientes já existentes
         /// </summary>
         /// <param name="id">Identificador do registro</param>
+        /// <param name="clienteModel"></param>
         /// <returns></returns>
         [HttpPut]
         [Route("{id}")]
@@ -90,9 +97,7 @@ namespace LR.Avaliacao.Api.Controllers
         public async Task<IActionResult> ObterPorId(Guid id)
         {
             var retorno = await _clienteApplication.Obter(id);
-            if (retorno.Valid)
-                return Ok(retorno.Object);
-            return BadRequest(retorno.Notifications);
+            return Ok(retorno.Object);
         }
 
         /// <summary>

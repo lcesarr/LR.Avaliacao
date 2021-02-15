@@ -18,7 +18,6 @@ namespace LR.Avaliacao.Tests.Domain
         [Fact]
         public void ClienteDadosIdadeMaiorIgualValidos()
         {
-            DateTime dataNascimento = DateTime.Now;
             var cliente = new Cliente("Leandro Cesar Ruela", new Avaliacao.Domain.ValueObjects.Cpf("01234567890"), DateTime.Now.AddYears(-18));
             Assert.True(cliente.Valid);
         }
